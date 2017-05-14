@@ -68,36 +68,9 @@ public abstract class BlockDirectional extends AutoUtilBlock {
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack itemstack)
 	{
-		// Most of this is ported legacy code from 1.7.10, which is why it's a bit derpy
-		// TODO: Rewrite to be less derpy
-		int direction = -1;
-		if (Math.abs(placer.rotationPitch) < 60)
-		{
-			int angle = (int)((placer.rotationYaw * 4F) / 360F + 0.5D);
-			while (angle >= 4) angle-=4;
-			while (angle < 0) angle+=4;
-			switch (angle)
-			{
-			case 0:
-				direction = 2;
-				break;
-			case 1:
-				direction = 5;
-				break;
-			case 2:
-				direction = 3;
-				break;
-			case 3:
-				direction = 4;
-				break;
-			}
-		}
-		else
-		{
-			if (placer.rotationPitch > 0) direction = 1;
-			else direction = 0;
-		}
-		if (placer.isSneaking()) direction = EnumFacing.getFront(direction).getOpposite().ordinal();
-		world.setBlockState(pos, state.withProperty(StateList.DIRECTIONS, EnumFacing.getFront(direction)));
+		EnumFacing direction = MiscHelper.getDirectionFromEntity(pos, placer);
+		Logger.info(direction);
+		if (placer.isSneaking()) direction = direction.getOpposite();
+		world.setBlockState(pos, state.withProperty(StateList.DIRECTIONS, direction));
 	}
 }

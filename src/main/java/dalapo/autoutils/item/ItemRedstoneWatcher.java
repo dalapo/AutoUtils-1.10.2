@@ -1,5 +1,6 @@
 package dalapo.autoutils.item;
 
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -7,6 +8,9 @@ import dalapo.autoutils.block.BlockRSNotifier;
 import dalapo.autoutils.helper.ChatHelper;
 import dalapo.autoutils.helper.TextureRegistryHelper;
 import dalapo.autoutils.logging.Logger;
+import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,14 +32,25 @@ public class ItemRedstoneWatcher extends AutoUtilItem {
 			setMaxStackSize(1);
 		}
 		
-		/*
 		@Override
-		public int getDamage(ItemStack itemstack)
+		@SideOnly(Side.CLIENT)
+		public void initModel()
 		{
-			boolean isActive = itemstack.getTagCompound().getBoolean("Active");
-			return isActive ? 1 : 0;
+			super.initModel();
+			final ModelResourceLocation active = new ModelResourceLocation(getRegistryName() + "_on", "inventory");
+			final ModelResourceLocation inactive = new ModelResourceLocation(getRegistryName() + "_off", "inventory");
+			
+			ModelBakery.registerItemVariants(this, active, inactive);
+			
+			ModelLoader.setCustomMeshDefinition(this, new ItemMeshDefinition() {
+				@Override
+				public ModelResourceLocation getModelLocation(ItemStack is)
+				{
+					if (is.getItemDamage() == 1) return active;
+					else return inactive;
+				}
+			});
 		}
-		*/
 		
 		@Override
 		public void onUpdate(ItemStack itemstack, World world, Entity ep, int i, boolean b)

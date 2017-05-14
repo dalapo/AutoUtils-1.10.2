@@ -29,7 +29,7 @@ public class BlockSidedEmitter extends BlockDirectional {
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing side)
 	{
-		if (state.getValue(StateList.DIRECTIONS).equals(side)) return 15;
+		if (state.getValue(StateList.DIRECTIONS).equals(side.getOpposite())) return 15;
 		else return 0;
 	}
 }

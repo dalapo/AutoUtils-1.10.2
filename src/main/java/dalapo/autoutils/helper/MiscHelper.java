@@ -1,5 +1,6 @@
 package dalapo.autoutils.helper;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
@@ -39,5 +40,13 @@ public class MiscHelper {
 			return block.east();
 		}
 		return block;
+	}
+	
+	public static EnumFacing getDirectionFromEntity(BlockPos clicked, EntityLivingBase elb)
+	{
+		return EnumFacing.getFacingFromVector(
+				(float)(elb.posX - clicked.getX()),
+				(float)(elb.posY - clicked.getY()),
+				(float)(elb.posZ - clicked.getZ()));
 	}
 }

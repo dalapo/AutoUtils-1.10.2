@@ -75,7 +75,8 @@ public class BlockItemRedis extends AutoUtilBlock
 			Logger.info(String.format("Block: %s, %s, %s", pos.getX(), pos.getY(), pos.getZ()));
 			Logger.info(entity instanceof EntityItem);
 			if (!(entity instanceof EntityItem)) return;
-			if ((int)entity.posX == pos.getX() && (int)(entity.posY + 0.1) > pos.getY() && (int)entity.posZ == pos.getZ())
+//			if ((int)entity.posX == pos.getX() && (int)(entity.posY + 0.1) > pos.getY() && (int)entity.posZ == pos.getZ())
+			if (entity.isCollidedVertically && (int)(entity.posY + 0.1) > pos.getY())
 			{
 				ItemStack is = ((EntityItem)entity).getEntityItem();
 				entity.setDead();

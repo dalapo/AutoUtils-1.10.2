@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "autoutils:blocks/filtermover",
+		"down": "autoutils:blocks/filtermover",
+		"up": "autoutils:blocks/filtermover",
+		"east": "autoutils:blocks/filtermover",
+		"west": "autoutils:blocks/filtermover",
+		"north": "#front",
+		"south": "#back"
+	}
+}

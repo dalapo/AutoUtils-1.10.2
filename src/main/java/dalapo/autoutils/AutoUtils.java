@@ -31,8 +31,8 @@ public class AutoUtils
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		Logger.info("Entered AutoUtils.preInit");
-		ModRegistry.init();
-		PacketHandler.registerMessages("AutoUtils");
+//		ModRegistry.init();
+//		PacketHandler.registerMessages("AutoUtils");
 		proxy.preInit(event);
 	}
 	

@@ -68,7 +68,8 @@ public abstract class BlockDirectional extends AutoUtilBlock {
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack itemstack)
 	{
-//		Most of this is ported legacy code from 1.7.10, which is why it's a bit derpy
+		// Most of this is ported legacy code from 1.7.10, which is why it's a bit derpy
+		// TODO: Rewrite to be less derpy
 		int direction = -1;
 		if (Math.abs(placer.rotationPitch) < 60)
 		{

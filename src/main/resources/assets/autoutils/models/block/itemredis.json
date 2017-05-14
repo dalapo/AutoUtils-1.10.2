@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "autoutils:blocks/itemredis_u",
+		"down": "autoutils:blocks/itemredis_d",
+		"up": "autoutils:blocks/itemredis_u",
+		"east": "autoutils:blocks/itemredis_e",
+		"west": "autoutils:blocks/itemredis_w",
+		"north": "autoutils:blocks/itemredis_n",
+		"south": "autoutils:blocks/itemredis_s"
+	}
+}

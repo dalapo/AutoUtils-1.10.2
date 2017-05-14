@@ -1,0 +1,8 @@
+tile.autoutils:AutoUtils.stackmover.name=Stack Mover
+tile.autoutils:AutoUtils.filtermover.name=Filtered Stack Mover
+tile.autoutils:AutoUtils.rednotifier.name=Redstone Notifier
+tile.autoutils:AutoUtils.sequenceplacer.name=Sequential Placer
+tile.autoutils:AutoUtils.itemredis.name=Item Redistributor
+tile.autoutils:AutoUtils.sidedrs.name=Redstone Panel
+
+item.AutoUtils.watcher.name=Redstone Watcher

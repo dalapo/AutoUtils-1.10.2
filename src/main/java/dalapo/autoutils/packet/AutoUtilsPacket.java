@@ -3,6 +3,7 @@ package dalapo.autoutils.packet;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import dalapo.autoutils.logging.Logger;
@@ -39,11 +40,16 @@ public abstract class AutoUtilsPacket implements IMessage {
 	public static class Handler implements IMessageHandler<AutoUtilsPacket, IMessage>
 	{
 		@Override
-		public IMessage onMessage(AutoUtilsPacket message, MessageContext ctx)
-		{
-			if (ctx.side.equals(Side.SERVER)) message.doHandle(ctx.getServerHandler());
-			else message.doHandle(ctx.getClientHandler());
-			return null;
+		public IMessage onMessage(final AutoUtilsPacket message, final MessageContext ctx) {
+			// Magic!
+			FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(new Runnable() {
+				@Override
+				public void run() {
+					if (ctx.side.equals(Side.CLIENT)) message.doHandle(ctx.getClientHandler());
+					else message.doHandle(ctx.getServerHandler());
+				}
+			});
+			return message;
 		}
 	}
 }

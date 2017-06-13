@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "AutoUtils",
+  "name": "Automation Utilities",
+  "description": "A small mod to fill in the gaps between automation options in common modpacks.",
+  "version": "1.0.1",
+  "mcversion": "1.10.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["lucariomaster2 aka ProfessorLucario aka dalapo"],
+  "credits": "Jimdo and McJty for their excellent modding tutorials; Vazkii and Reika for making their mods open source for me to look through",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

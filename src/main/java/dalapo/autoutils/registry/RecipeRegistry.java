@@ -12,9 +12,9 @@ public class RecipeRegistry {
 	public static void init()
 	{
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.STACK_MOVER)), new Object[] {
-				"WHW", "WPW", "WDW", 'W', Blocks.PLANKS, 'H', Blocks.HOPPER, 'P', Blocks.PISTON, 'D', Blocks.DROPPER});
+				"WWW", "HPD", "WWW", 'W', Blocks.PLANKS, 'H', Blocks.HOPPER, 'P', Blocks.PISTON, 'D', Blocks.DROPPER});
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.FILTER_STACK_MOVER)), new Object[] {
-				"QLQ", "QMQ", "QLQ", 'Q', Items.QUARTZ, 'L', new ItemStack(Items.DYE, 1, 4), 'M', ModRegistry.blocks.get(BlockIDList.STACK_MOVER)});
+				"QQQ", "LML", "QQQ", 'Q', Items.QUARTZ, 'L', new ItemStack(Items.DYE, 1, 4), 'M', ModRegistry.blocks.get(BlockIDList.STACK_MOVER)});
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.REDSTONE_NOTIFIER)),
 				" T ", "WQW", "WWW", 'T', Blocks.REDSTONE_TORCH, 'W', Blocks.PLANKS, 'Q', Blocks.QUARTZ_BLOCK);
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.items.get(ItemIDList.WATCHER)),

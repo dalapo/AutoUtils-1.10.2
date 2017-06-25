@@ -49,7 +49,7 @@ public abstract class AutoUtilsPacket implements IMessage {
 					else message.doHandle(ctx.getServerHandler());
 				}
 			});
-			return message;
+			return null;
 		}
 	}
 }
